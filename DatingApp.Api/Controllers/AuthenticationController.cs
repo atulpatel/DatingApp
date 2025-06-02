@@ -40,6 +40,9 @@ namespace DatingApp.Api.Controllers
 
         [HttpPost("Login")]
         public async Task<IActionResult> Authentication(AuthUser user){
+            
+            //throw new Exception("Something went wrong...");
+
             var userinfo= await _userService.Login(user.UserName.ToLower(), user.Password);
             if(userinfo == null)
                 return Unauthorized();
